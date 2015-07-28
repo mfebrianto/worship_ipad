@@ -1,5 +1,5 @@
 //
-//  ViewController.h
+//  SongView.h
 //  Worship
 //
 //  Created by michael febrianto on 28/07/2015.
@@ -7,13 +7,12 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "ExternalScreen.h"
 
-@interface ViewController : UIViewController
+@interface SongView : NSObject
 {
-    ExternalScreen * es;
+    UIView *songView;
 }
 
+- (UIView *) getView:(CGRect*)areaTwo :(UIButton*) btn;
 
 @end
-

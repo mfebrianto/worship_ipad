@@ -7,8 +7,6 @@
 //
 
 #import <Foundation/Foundation.h>
-
-#import <Foundation/Foundation.h>
 #import "ExternalScreen.h"
 
 #define SCREEN_CONNECTED	([UIScreen screens].count > 1)

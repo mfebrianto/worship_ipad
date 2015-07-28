@@ -16,6 +16,7 @@
 		876281DB1B67165100BE2D97 /* WorshipTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 876281DA1B67165100BE2D97 /* WorshipTests.m */; };
 		876281E61B6716A600BE2D97 /* ExternalScreen.m in Sources */ = {isa = PBXBuildFile; fileRef = 876281E51B6716A600BE2D97 /* ExternalScreen.m */; };
 		876281E81B6716C300BE2D97 /* ExternalWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = 876281E71B6716C300BE2D97 /* ExternalWindow.xib */; };
+		876281EB1B67AA3800BE2D97 /* SongView.m in Sources */ = {isa = PBXBuildFile; fileRef = 876281EA1B67AA3800BE2D97 /* SongView.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -45,6 +46,8 @@
 		876281E41B67169400BE2D97 /* ExternalScreen.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ExternalScreen.h; sourceTree = "<group>"; };
 		876281E51B6716A600BE2D97 /* ExternalScreen.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ExternalScreen.m; sourceTree = "<group>"; };
 		876281E71B6716C300BE2D97 /* ExternalWindow.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ExternalWindow.xib; sourceTree = "<group>"; };
+		876281E91B67AA0A00BE2D97 /* SongView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SongView.h; sourceTree = "<group>"; };
+		876281EA1B67AA3800BE2D97 /* SongView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SongView.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -92,6 +95,8 @@
 				876281C61B67165100BE2D97 /* ViewController.m */,
 				876281E41B67169400BE2D97 /* ExternalScreen.h */,
 				876281E51B6716A600BE2D97 /* ExternalScreen.m */,
+				876281E91B67AA0A00BE2D97 /* SongView.h */,
+				876281EA1B67AA3800BE2D97 /* SongView.m */,
 				876281C81B67165100BE2D97 /* Main.storyboard */,
 				876281CB1B67165100BE2D97 /* Images.xcassets */,
 				876281CD1B67165100BE2D97 /* LaunchScreen.xib */,
@@ -232,6 +237,7 @@
 				876281C41B67165100BE2D97 /* AppDelegate.m in Sources */,
 				876281E61B6716A600BE2D97 /* ExternalScreen.m in Sources */,
 				876281C11B67165100BE2D97 /* main.m in Sources */,
+				876281EB1B67AA3800BE2D97 /* SongView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

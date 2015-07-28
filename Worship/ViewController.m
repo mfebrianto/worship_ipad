@@ -8,6 +8,7 @@
 
 #import "ViewController.h"
 #import "ExternalScreen.h"
+#import "SongView.h"
 
 @interface ViewController ()
 
@@ -19,7 +20,7 @@
     [super viewDidLoad];
     es = [[ExternalScreen  alloc]init];
     // Do any additional setup after loading the view, typically from a nib.
-
+    
     self.view.backgroundColor = [UIColor whiteColor];
     
     CGRect areaOne, areaTwo;
@@ -34,28 +35,16 @@
     viewOne.layer.shadowOpacity = 0.5;
     [self.view addSubview:viewOne];
     
-    UIView *viewTwo = [[UIView alloc] initWithFrame:CGRectInset(areaTwo, 10, 10)];
-    viewTwo.autoresizingMask = UIViewAutoresizingFlexibleHeight|UIViewAutoresizingFlexibleWidth|UIViewAutoresizingFlexibleLeftMargin;
-    viewTwo.backgroundColor = [UIColor colorWithWhite:0.9 alpha:1.0];
-    viewTwo.layer.borderWidth = 2.0;
-    viewTwo.layer.borderColor = [UIColor lightGrayColor].CGColor;
-    viewTwo.layer.shadowOffset = CGSizeZero;
-    viewTwo.layer.shadowOpacity = 0.5;
-    [self.view addSubview:viewTwo];
-    
-    btn=[[UIButton alloc]initWithFrame:CGRectMake(50, 20, 30, 30)];
+    UIButton *btn=[[UIButton alloc]initWithFrame:CGRectMake(50, 20, 30, 30)];
     [btn setBackgroundColor:[UIColor orangeColor]];
     //adding action programatically
     [btn addTarget:self action:@selector(btnClicked:) forControlEvents:UIControlEventTouchUpInside];
-    [viewTwo addSubview:btn];
-
+    
+    SongView *songView = [[SongView  alloc]init];
+    [self.view addSubview:[songView getView:&areaTwo :btn]];
+    
+    
 }
-
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
-}
-
 
 - (IBAction)btnClicked:(id)sender
 {
@@ -64,7 +53,13 @@
     imagePickerController.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
     imagePickerController.delegate = self;
     [self presentViewController:imagePickerController animated:YES completion:nil];
+    
+}
 
+
+- (void)didReceiveMemoryWarning {
+    [super didReceiveMemoryWarning];
+    // Dispose of any resources that can be recreated.
 }
 
 - (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info
