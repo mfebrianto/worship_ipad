@@ -13,8 +13,6 @@
 
 #define SCREEN_CONNECTED	([UIScreen screens].count > 1)
 
-
-
 @implementation ExternalScreen
 
 - (void) changeBackgroundImage:(UIImage*)imageBackground

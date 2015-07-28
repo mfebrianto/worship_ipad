@@ -12,12 +12,10 @@
 @interface ViewController : UIViewController
 {
     ExternalScreen * es;
+    CGRect areaOne, areaTwo;
+    UIButton *btn;
 }
 
-@property (weak, nonatomic) IBOutlet UIButton *changeColourButton;
-
-
-- (IBAction)callVideoKit:(id)sender;
 
 @end
 
