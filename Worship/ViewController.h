@@ -7,9 +7,17 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "ExternalScreen.h"
 
 @interface ViewController : UIViewController
+{
+    ExternalScreen * es;
+}
 
+@property (weak, nonatomic) IBOutlet UIButton *changeColourButton;
+
+
+- (IBAction)callVideoKit:(id)sender;
 
 @end
 
