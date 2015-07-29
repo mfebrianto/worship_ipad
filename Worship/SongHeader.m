@@ -24,7 +24,7 @@
 {
     songHeader = [[UIView alloc] initWithFrame:CGRectInset(*headerArea, 10, 10)];
     songHeader.autoresizingMask = UIViewAutoresizingFlexibleHeight|UIViewAutoresizingFlexibleWidth|UIViewAutoresizingFlexibleLeftMargin;
-    songHeader.backgroundColor = [UIColor colorWithWhite:0.9 alpha:1.0];
+    songHeader.backgroundColor = [UIColor redColor];
     songHeader.layer.borderWidth = 2.0;
     songHeader.layer.borderColor = [UIColor redColor].CGColor;
     songHeader.layer.shadowOffset = CGSizeZero;

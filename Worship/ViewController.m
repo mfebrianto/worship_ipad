@@ -9,6 +9,7 @@
 #import "ViewController.h"
 #import "ExternalScreen.h"
 #import "SongView.h"
+#import "SongHeader.h"
 
 @interface ViewController ()
 
@@ -45,8 +46,11 @@
     [btn addTarget:self action:@selector(btnClicked:) forControlEvents:UIControlEventTouchUpInside];
     
     
+    //TODO: something need to do, still unable to see the header
     SongView *songView = [[SongView  alloc]init];
-    [self.view addSubview:[songView getView:&areaTwo :btn]];
+    SongHeader *songHeader = [[SongHeader  alloc]init];
+    [self.view addSubview:[songView getView:&content :btn]];
+    [self.view addSubview:[songHeader getView:&header :btn]];
 
 }
 

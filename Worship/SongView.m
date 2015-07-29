@@ -20,11 +20,11 @@
     return self;
 }
 
-- (UIView *) getView:(CGRect*)areaTwo :(UIButton*) btn;
+- (UIView *) getView:(CGRect*)contentArea :(UIButton*) btn;
 {
-    songView = [[UIView alloc] initWithFrame:CGRectInset(*areaTwo, 10, 10)];
+    songView = [[UIView alloc] initWithFrame:CGRectInset(*contentArea, 10, 10)];
     songView.autoresizingMask = UIViewAutoresizingFlexibleHeight|UIViewAutoresizingFlexibleWidth|UIViewAutoresizingFlexibleLeftMargin;
-    songView.backgroundColor = [UIColor colorWithWhite:0.9 alpha:1.0];
+    songView.backgroundColor = [UIColor greenColor];
     songView.layer.borderWidth = 2.0;
     songView.layer.borderColor = [UIColor lightGrayColor].CGColor;
     songView.layer.shadowOffset = CGSizeZero;
