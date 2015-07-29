@@ -20,7 +20,7 @@
     return self;
 }
 
-- (UIView *) getView:(CGRect*)contentArea :(UIButton*) btn;
+- (UIView *) getView:(CGRect*)contentArea
 {
     songView = [[UIView alloc] initWithFrame:CGRectInset(*contentArea, 10, 10)];
     songView.autoresizingMask = UIViewAutoresizingFlexibleHeight|UIViewAutoresizingFlexibleWidth|UIViewAutoresizingFlexibleLeftMargin;
@@ -29,9 +29,7 @@
     songView.layer.borderColor = [UIColor lightGrayColor].CGColor;
     songView.layer.shadowOffset = CGSizeZero;
     songView.layer.shadowOpacity = 0.5;
-    
-    [songView addSubview:btn];
-    
+        
     return songView;
 }
 

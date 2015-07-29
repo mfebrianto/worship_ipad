@@ -13,6 +13,6 @@
     UIView *songHeader;
 }
 
-- (UIView *) getView:(CGRect*)areaTwo :(UIButton*) btn;
+- (UIView *) getView:(CGRect*)headerArea;
 
 @end

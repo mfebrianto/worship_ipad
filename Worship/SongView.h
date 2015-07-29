@@ -13,6 +13,6 @@
     UIView *songView;
 }
 
-- (UIView *) getView:(CGRect*)areaTwo :(UIButton*) btn;
+- (UIView *) getView:(CGRect*)contentArea;
 
 @end

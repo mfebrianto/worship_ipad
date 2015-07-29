@@ -20,7 +20,7 @@
     return self;
 }
 
-- (UIView *) getView:(CGRect*)headerArea :(UIButton*) btn;
+- (UIView *) getView:(CGRect*)headerArea
 {
     songHeader = [[UIView alloc] initWithFrame:CGRectInset(*headerArea, 10, 10)];
     songHeader.autoresizingMask = UIViewAutoresizingFlexibleHeight|UIViewAutoresizingFlexibleWidth|UIViewAutoresizingFlexibleLeftMargin;
@@ -30,7 +30,7 @@
     songHeader.layer.shadowOffset = CGSizeZero;
     songHeader.layer.shadowOpacity = 0.5;
     
-//    [songView addSubview:btn];
+//    [songHeader addSubview:btn];
     
     return songHeader;
 }

@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "ExternalScreen.h"
+#import "ContentView.h"
 
 @interface ViewController : UIViewController
 {
