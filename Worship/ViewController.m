@@ -24,7 +24,11 @@
     self.view.backgroundColor = [UIColor whiteColor];
     
     CGRect areaOne, areaTwo;
+    CGRect header, content;
+
     CGRectDivide(self.view.bounds, &areaOne, &areaTwo, self.view.bounds.size.width * 0.30, CGRectMinXEdge);
+    CGRectDivide(areaTwo, &header, &content, 0.10, CGRectMinYEdge);
+
     
     UIView *viewOne = [[UIView alloc] initWithFrame:CGRectInset(areaOne, 10, 10)];
     viewOne.autoresizingMask = UIViewAutoresizingFlexibleHeight|UIViewAutoresizingFlexibleWidth|UIViewAutoresizingFlexibleRightMargin;
@@ -40,10 +44,10 @@
     //adding action programatically
     [btn addTarget:self action:@selector(btnClicked:) forControlEvents:UIControlEventTouchUpInside];
     
+    
     SongView *songView = [[SongView  alloc]init];
     [self.view addSubview:[songView getView:&areaTwo :btn]];
-    
-    
+
 }
 
 - (IBAction)btnClicked:(id)sender
