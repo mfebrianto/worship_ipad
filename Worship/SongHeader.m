@@ -32,11 +32,9 @@
     
     UIButton *btn=[[UIButton alloc]initWithFrame:CGRectMake(50, 20, 200, 30)];
     [btn setBackgroundColor:[UIColor orangeColor]];
-    [btn setTitle:@"Background" forState:UIControlStateNormal];
-    [btn addTarget:[ViewController  sharedViewCcontroller] action:@selector(clicked:) forControlEvents:UIControlEventTouchUpInside];
-    
-//    ButtonChangeBackground *buttonChangeBackground = [[ButtonChangeBackground  alloc]init];
-    [songHeader addSubview:btn];
+    [btn setTitle:@"Background" forState:UIControlStateNormal];    
+
+    [songHeader addSubview:[[ButtonChangeBackground  sharedButtonChangeBackground] getButton]];
     
     return songHeader;
 }

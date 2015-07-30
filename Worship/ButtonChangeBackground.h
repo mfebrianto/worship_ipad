@@ -9,8 +9,14 @@
 #import <UIKit/UIKit.h>
 #import "ViewController.h"
 
-@interface ButtonChangeBackground : NSObject
+@interface ButtonChangeBackground : UIViewController <UINavigationControllerDelegate, UIImagePickerControllerDelegate>
+
++ (ButtonChangeBackground *)sharedButtonChangeBackground;
 
 - (UIButton *)getButton;
+
+- (IBAction)clicked:(id)sender;
+
+
 
 @end

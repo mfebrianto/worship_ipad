@@ -12,6 +12,17 @@
 
 @implementation ButtonChangeBackground
 
+static ButtonChangeBackground *sharedButtonChangeBackground;
+
++ (ButtonChangeBackground *)sharedButtonChangeBackground {
+    static dispatch_once_t once;
+    dispatch_once(&once, ^{
+        sharedButtonChangeBackground = [[ButtonChangeBackground alloc] init];
+    });
+    return sharedButtonChangeBackground;
+}
+
+
 - (id) init
 {
     if (!(self = [super init])) return self;
@@ -27,34 +38,16 @@
     [btn setTitle:@"Background" forState:UIControlStateNormal];
     
     //adding action programatically
-//    [btn addTarget:[ViewController  sharedViewCcontroller] action:@selector(btnClicked:) forControlEvents:UIControlEventTouchUpInside];
+    [btn addTarget:self action:@selector(clicked:) forControlEvents:UIControlEventTouchUpInside];
     
     return btn;
 }
 
-- (IBAction)buttonPressed:(UIButton *)sender
+- (IBAction)clicked:(id)sender
 {
-    NSLog(@"btnClicked is called");
-    //    UIImagePickerController *imagePickerController = [[UIImagePickerController alloc] init];
-    //    imagePickerController.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
-    //    ViewController *viewController = [[ViewController  alloc]init];
-    //    imagePickerController.delegate = viewController;
-    //    ViewController *viewController = [[ViewController  alloc]init];
-    //    [self presentViewController:imagePickerController animated:YES completion:nil];
-    
-}
+    NSLog(@"button clicked");
+    [[ViewController sharedViewCcontroller] clicked];
 
-- (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info
-{
-    UIImage *image = [info valueForKey:UIImagePickerControllerOriginalImage];
-    
-    //Or you can get the image url from AssetsLibrary
-    NSURL *path = [info valueForKey:UIImagePickerControllerReferenceURL];
-    
-    [[ExternalScreen  sharedES] changeBackgroundImage:image];
-    
-    [picker dismissViewControllerAnimated:YES completion:^{
-    }];
 }
 
 

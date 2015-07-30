@@ -14,7 +14,7 @@
 
 + (ViewController *)sharedViewCcontroller;
 
-- (IBAction)clicked:(id)sender;
+- (void)clicked;
 
 @end
 
