@@ -14,7 +14,6 @@
 
 + (ViewController *)sharedViewCcontroller;
 
-- (IBAction)buttonPressed:(UIButton *)sender;
 
 @end
 

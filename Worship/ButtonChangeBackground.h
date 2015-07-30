@@ -9,7 +9,8 @@
 #import <UIKit/UIKit.h>
 #import "ViewController.h"
 
-@interface ButtonChangeBackground : UIButton
+@interface ButtonChangeBackground : NSObject
 
+- (UIButton *)getButton;
 
 @end
