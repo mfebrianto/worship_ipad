@@ -30,8 +30,13 @@
     songHeader.layer.shadowOffset = CGSizeZero;
     songHeader.layer.shadowOpacity = 0.5;
     
-    ButtonChangeBackground *buttonChangeBackground = [[ButtonChangeBackground  alloc]init];
-    [songHeader addSubview:buttonChangeBackground.getButton];
+    UIButton *btn=[[UIButton alloc]initWithFrame:CGRectMake(50, 20, 200, 30)];
+    [btn setBackgroundColor:[UIColor orangeColor]];
+    [btn setTitle:@"Background" forState:UIControlStateNormal];
+    [btn addTarget:[ViewController  sharedViewCcontroller] action:@selector(clicked:) forControlEvents:UIControlEventTouchUpInside];
+    
+//    ButtonChangeBackground *buttonChangeBackground = [[ButtonChangeBackground  alloc]init];
+    [songHeader addSubview:btn];
     
     return songHeader;
 }

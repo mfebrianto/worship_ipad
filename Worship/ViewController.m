@@ -51,4 +51,9 @@ static ViewController *sharedViewCcontroller;
     // Dispose of any resources that can be recreated.
 }
 
+- (IBAction)clicked:(id)sender
+{
+    NSLog(@"button clicked");
+}
+
 @end
