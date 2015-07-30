@@ -9,8 +9,6 @@
 #import <Foundation/Foundation.h>
 #import "ContentView.h"
 
-#define SCREEN_CONNECTED	([UIScreen screens].count > 1)
-
 @implementation ContentView
 
 - (id) init

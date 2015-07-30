@@ -22,4 +22,6 @@
 
 - (void) changeBackgroundImage:(UIImage*)imageBackground;
 
++ (ExternalScreen *)sharedES;
+
 @end

@@ -30,13 +30,13 @@
     songHeader.layer.shadowOffset = CGSizeZero;
     songHeader.layer.shadowOpacity = 0.5;
     
-//    [songHeader addSubview:btn];
+    
+    [songHeader addSubview:[[ButtonChangeBackground  alloc]init]];
+
+    
     
     return songHeader;
 }
-
-
-
 
 
 @end

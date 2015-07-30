@@ -9,15 +9,21 @@
 #import "ViewController.h"
 #import "ExternalScreen.h"
 
-@interface ViewController ()
-
-@end
-
 @implementation ViewController
+
+static ViewController *sharedViewCcontroller;
+
++ (ViewController *)sharedViewCcontroller {
+    static dispatch_once_t once;
+    dispatch_once(&once, ^{
+        sharedViewCcontroller = [[ViewController alloc] init];
+    });
+    return sharedViewCcontroller;
+}
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    es = [[ExternalScreen  alloc]init];
+    [ExternalScreen  sharedES]; //calling singleton external screen
     // Do any additional setup after loading the view, typically from a nib.
     
     self.view.backgroundColor = [UIColor whiteColor];
@@ -34,30 +40,26 @@
     viewOne.layer.shadowOpacity = 0.5;
     [self.view addSubview:viewOne];
     
-    UIButton *btn=[[UIButton alloc]initWithFrame:CGRectMake(50, 20, 30, 30)];
-    [btn setBackgroundColor:[UIColor orangeColor]];
-    //adding action programatically
-    [btn addTarget:self action:@selector(btnClicked:) forControlEvents:UIControlEventTouchUpInside];
-    
     ContentView *contentView = [[ContentView  alloc]init];
     [self.view addSubview:[contentView getView:&areaTwo]];
 
 }
 
-- (IBAction)btnClicked:(id)sender
-{
-    NSLog(@"btnClicked is called");
-    UIImagePickerController *imagePickerController = [[UIImagePickerController alloc] init];
-    imagePickerController.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
-    imagePickerController.delegate = self;
-    [self presentViewController:imagePickerController animated:YES completion:nil];
-    
-}
-
-
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+- (IBAction)buttonPressed:(UIButton *)sender
+{
+    NSLog(@"btnClicked is called");
+    //    UIImagePickerController *imagePickerController = [[UIImagePickerController alloc] init];
+    //    imagePickerController.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
+    //    ViewController *viewController = [[ViewController  alloc]init];
+    //    imagePickerController.delegate = viewController;
+    //    ViewController *viewController = [[ViewController  alloc]init];
+    //    [self presentViewController:imagePickerController animated:YES completion:nil];
+    
 }
 
 - (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info
@@ -67,9 +69,10 @@
     //Or you can get the image url from AssetsLibrary
     NSURL *path = [info valueForKey:UIImagePickerControllerReferenceURL];
     
-    [es changeBackgroundImage:image];
+    [[ExternalScreen  sharedES] changeBackgroundImage:image];
     
     [picker dismissViewControllerAnimated:YES completion:^{
     }];
 }
+
 @end

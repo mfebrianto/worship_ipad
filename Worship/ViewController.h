@@ -11,10 +11,10 @@
 #import "ContentView.h"
 
 @interface ViewController : UIViewController
-{
-    ExternalScreen * es;
-}
 
++ (ViewController *)sharedViewCcontroller;
+
+- (IBAction)buttonPressed:(UIButton *)sender;
 
 @end
 

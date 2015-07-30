@@ -9,8 +9,6 @@
 #import <Foundation/Foundation.h>
 #import "SongView.h"
 
-#define SCREEN_CONNECTED	([UIScreen screens].count > 1)
-
 @implementation SongView
 
 - (id) init

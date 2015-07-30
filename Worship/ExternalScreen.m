@@ -13,6 +13,17 @@
 
 @implementation ExternalScreen
 
+static ExternalScreen *sharedES;
+
++ (ExternalScreen *)sharedES
+{
+    static dispatch_once_t once;
+    dispatch_once(&once, ^{
+        sharedES = [[ExternalScreen alloc] init];
+    });
+    return sharedES	;
+}
+
 - (void) changeBackgroundImage:(UIImage*)imageBackground
 {
     NSLog(@"changeBackgroundImage");
