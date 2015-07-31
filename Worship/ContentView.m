@@ -29,7 +29,7 @@
     contentView.layer.shadowOpacity = 0.5;
     
     CGRect header, content;
-    CGRectDivide(contentView.bounds, &header, &content, contentView.bounds.size.height * 0.3, CGRectMinYEdge);
+    CGRectDivide(contentView.bounds, &header, &content, contentView.bounds.size.height * 0.1, CGRectMinYEdge);
 
     SongHeader *songHeader = [[SongHeader  alloc]init];
     SongView *songView = [[SongView  alloc]init];

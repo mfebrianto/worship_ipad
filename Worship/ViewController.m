@@ -21,6 +21,10 @@ static ViewController *sharedViewCcontroller;
     return sharedViewCcontroller;
 }
 
+- (NSUInteger)supportedInterfaceOrientations{
+    return UIInterfaceOrientationMaskLandscape;
+}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     [ExternalScreen  sharedES]; //calling singleton external screen
