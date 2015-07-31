@@ -11,8 +11,10 @@
 @interface SongView : NSObject
 {
     UIView *songView;
+    UITableView *songTableView;
 }
 
 - (UIView *) getView:(CGRect*)contentArea;
+- (UITableView *) getTableView:(CGRect*)contentArea;
 
 @end

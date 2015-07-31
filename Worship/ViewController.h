@@ -11,6 +11,9 @@
 #import "ContentView.h"
 
 @interface ViewController : UIViewController
+{
+    int screenWidth;
+}
 
 + (ViewController *)sharedViewCcontroller;
 

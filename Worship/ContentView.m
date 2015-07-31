@@ -21,7 +21,7 @@
 - (UIView *) getView:(CGRect*)contentArea
 {
     contentView = [[UIView alloc] initWithFrame:CGRectInset(*contentArea, 10, 10)];
-    contentView.autoresizingMask = UIViewAutoresizingFlexibleHeight|UIViewAutoresizingFlexibleWidth|UIViewAutoresizingFlexibleLeftMargin;
+    contentView.autoresizingMask =  UIViewAutoresizingFlexibleWidth|UIViewAutoresizingFlexibleLeftMargin;
     contentView.backgroundColor = [UIColor greenColor];
     contentView.layer.borderWidth = 2.0;
     contentView.layer.borderColor = [UIColor lightGrayColor].CGColor;
@@ -34,7 +34,7 @@
     SongHeader *songHeader = [[SongHeader  alloc]init];
     SongView *songView = [[SongView  alloc]init];
     [contentView addSubview:[songHeader getView:&header]];
-    [contentView addSubview:[songView getView:&content]];
+    [contentView addSubview:[songView getTableView:&content]];
 
     
     return contentView;
