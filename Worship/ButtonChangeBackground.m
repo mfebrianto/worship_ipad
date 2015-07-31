@@ -46,9 +46,33 @@ static ButtonChangeBackground *sharedButtonChangeBackground;
 - (IBAction)clicked:(id)sender
 {
     NSLog(@"button clicked");
-    [[ViewController sharedViewCcontroller] clicked];
+    [self clicked];
 
 }
+
+- (void)clicked
+{
+    NSLog(@"clicked");
+    UIImagePickerController *imagePickerController = [[UIImagePickerController alloc] init];
+    imagePickerController.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
+    imagePickerController.delegate = self;
+    imagePickerController.modalPresentationStyle = UIModalPresentationFormSheet;
+    [[[[[UIApplication sharedApplication] delegate] window] rootViewController] presentViewController:imagePickerController animated:YES completion:nil];
+}
+
+- (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info
+{
+    UIImage *image = [info valueForKey:UIImagePickerControllerOriginalImage];
+    
+    //Or you can get the image url from AssetsLibrary
+    NSURL *path = [info valueForKey:UIImagePickerControllerReferenceURL];
+    
+    [[ExternalScreen  sharedES] changeBackgroundImage:image];
+    
+    [picker dismissViewControllerAnimated:YES completion:^{
+    }];
+}
+
 
 
 @end

@@ -40,37 +40,13 @@ static ViewController *sharedViewCcontroller;
     viewOne.layer.shadowOpacity = 0.5;
     [self.view addSubview:viewOne];
     
-    
     ContentView *contentView = [[ContentView  alloc]init];
     [self.view addSubview:[contentView getView:&areaTwo]];
-
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
-}
-
-- (void)clicked
-{
-    NSLog(@"clicked");
-    UIImagePickerController *imagePickerController = [[UIImagePickerController alloc] init];
-    imagePickerController.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
-    imagePickerController.delegate = self;
-    [self presentViewController:imagePickerController animated:YES completion:nil];
-}
-
-- (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info
-{
-    UIImage *image = [info valueForKey:UIImagePickerControllerOriginalImage];
-    
-    //Or you can get the image url from AssetsLibrary
-    NSURL *path = [info valueForKey:UIImagePickerControllerReferenceURL];
-    
-    [[ExternalScreen  sharedES] changeBackgroundImage:image];
-    
-    [picker dismissViewControllerAnimated:YES completion:^{
-    }];
 }
 
 @end
