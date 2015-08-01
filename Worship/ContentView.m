@@ -11,11 +11,9 @@
 
 @implementation ContentView
 
-- (id) init
+- (void)viewDidLoad
 {
-    if (!(self = [super init])) return self;
-    
-    return self;
+    [super viewDidLoad];
 }
 
 - (UIView *) getView:(CGRect*)contentArea
@@ -32,8 +30,10 @@
     CGRectDivide(contentView.bounds, &header, &content, contentView.bounds.size.height * 0.1, CGRectMinYEdge);
 
     SongHeader *songHeader = [[SongHeader  alloc]init];
-    SongView *songView = [[SongView  alloc]init];
     [contentView addSubview:[songHeader getView:&header]];
+    
+    SongView *songView = [[SongView  alloc]init];
+    [self addChildViewController:songView];
     [contentView addSubview:[songView getTableView:&content]];
 
     

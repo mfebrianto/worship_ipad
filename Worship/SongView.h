@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface SongView : NSObject
+@interface SongView : UIViewController <UITableViewDelegate, UITableViewDataSource>
 {
     UIView *songView;
     UITableView *songTableView;

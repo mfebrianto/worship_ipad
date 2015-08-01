@@ -45,6 +45,8 @@ static ViewController *sharedViewCcontroller;
     [self.view addSubview:viewOne];
     
     ContentView *contentView = [[ContentView  alloc]init];
+    [self addChildViewController:contentView];
+    
     [self.view addSubview:[contentView getView:&areaTwo]];
 }
 

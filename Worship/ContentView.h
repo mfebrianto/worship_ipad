@@ -11,7 +11,7 @@
 #import "SongHeader.h"
 
 
-@interface ContentView : NSObject
+@interface ContentView : UIViewController
 {
     UIView *contentView;
 }
