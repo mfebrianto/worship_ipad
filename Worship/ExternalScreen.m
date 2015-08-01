@@ -90,8 +90,8 @@ static ExternalScreen *sharedES;
     [backgroundColorWhite setImage:backgoundImage];
     
     // Add label
-    UILabel  *xlabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, 50, 20)];
-    xlabel.text = @"xxx";
+    xlabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, 500, 20)];
+    xlabel.text = @"freeToWorship";
     [backgroundColorWhite addSubview:xlabel];
     
     baseView = [[UIImageView alloc] initWithFrame:rect];
@@ -100,6 +100,11 @@ static ExternalScreen *sharedES;
     
     
     //    NSLog(@"setup external screen done");
+}
+
+- (void) updateText:(NSString*)text
+{
+    xlabel.text = text;
 }
 
 - (id) init

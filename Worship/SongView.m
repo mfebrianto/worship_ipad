@@ -8,6 +8,7 @@
 
 #import <Foundation/Foundation.h>
 #import "SongView.h"
+#import "ExternalScreen.h"
 
 @implementation SongView {
     UITableView *tableView;
@@ -42,18 +43,40 @@
 // number of row in the section, I assume there is only 1 row
 - (NSInteger)tableView:(UITableView *)theTableView numberOfRowsInSection:(NSInteger)section
 {
-    return 1;
+    return 5;
 }
 
 // the cell will be returned to the tableView
 - (UITableViewCell *)tableView:(UITableView *)theTableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     static NSString *cellIdentifier = @"HistoryCell";
+    NSInteger row = [indexPath row];
     
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier];
     if (cell == nil)
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellIdentifier];
-    cell.textLabel.text = cellIdentifier;
+    
+    
+    switch (row)
+    {
+        case 0:
+            cell.textLabel.text = @"There is nothing worth more";
+            break;
+        case 1:
+            cell.textLabel.text = @"nothing can compare You are living hope";
+            break;
+        case 2:
+            cell.textLabel.text = @"Your presence Lord";
+            break;
+        case 3:
+            cell.textLabel.text = @"I tested and see of";
+            break;
+        default:
+            cell.textLabel.text = @"sweetness of love";
+            break;
+            
+    }
+    
 
     return cell;
 
@@ -66,6 +89,7 @@
     UITableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
     NSString *cellText = cell.textLabel.text;
     NSLog(@"%@",cellText);
+    [[ExternalScreen  sharedES] updateText:cellText];
 }
 
 @end

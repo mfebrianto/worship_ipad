@@ -15,12 +15,14 @@
     UIImageView *baseView;
     UIImage *backgoundImage;
     UIImageView *backgroundColorWhite;
+    UILabel  *xlabel;
 }
 
 @property (nonatomic, strong) CADisplayLink *displayLink;
 @property (strong, nonatomic) IBOutlet UIWindow *outputWindow;
 
 - (void) changeBackgroundImage:(UIImage*)imageBackground;
+- (void) updateText:(NSString*)text;
 
 + (ExternalScreen *)sharedES;
 
