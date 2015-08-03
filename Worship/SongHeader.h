@@ -9,6 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "ViewController.h"
 #import "ButtonChangeBackground.h"
+#import "ButtonNewSong.h"
 
 @interface SongHeader : NSObject
 {
