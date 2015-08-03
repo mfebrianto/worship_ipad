@@ -9,16 +9,19 @@
 #import <UIKit/UIKit.h>
 #import "SongView.h"
 #import "SongHeader.h"
+#import "SongEditor.h"
 
 
 @interface ContentView : UIViewController
 {
     UIView *contentView;
+    CGRect header, content;
 }
 
 + (ContentView *)sharedContentView;
 
 - (UIView *) getView:(CGRect*)areaTwo;
 - (void) removeView;
+- (void) addSongEditor;
 
 @end

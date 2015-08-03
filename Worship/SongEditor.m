@@ -11,6 +11,16 @@
 
 @implementation SongEditor
 
+static SongEditor *sharedSongEditor;
+
++ (SongEditor *)sharedSongEditor {
+    static dispatch_once_t once;
+    dispatch_once(&once, ^{
+        sharedSongEditor = [[SongEditor alloc] init];
+    });
+    return sharedSongEditor;
+}
+
 - (void)viewDidLoad
 {
     [super viewDidLoad];
@@ -18,6 +28,10 @@
 
 - (UITextView *) getView:(CGRect*)contentArea
 {
+    songEditor = [[UITextView alloc] initWithFrame:CGRectInset(*contentArea, 10, 10)];
+    songEditor.autoresizingMask =  UIViewAutoresizingFlexibleWidth|UIViewAutoresizingFlexibleLeftMargin;
+    songEditor.backgroundColor = [UIColor grayColor];
+    
     return songEditor;
 }
 

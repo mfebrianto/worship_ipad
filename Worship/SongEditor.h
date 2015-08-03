@@ -8,12 +8,13 @@
 
 #import <UIKit/UIKit.h>
 #import "ViewController.h"
-#import "ButtonChangeBackground.h"
 
-@interface SongEditor : UIViewController <UITableViewDelegate, UITableViewDataSource>
+@interface SongEditor : UIViewController
 {
     UITextView *songEditor;
 }
+
++ (SongEditor *)sharedSongEditor;
 
 - (UITextView *) getView:(CGRect*)contentArea;
 

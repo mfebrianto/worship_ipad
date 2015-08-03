@@ -37,7 +37,6 @@ static ContentView *sharedContentView;
     contentView.layer.shadowOffset = CGSizeZero;
     contentView.layer.shadowOpacity = 0.5;
     
-    CGRect header, content;
     CGRectDivide(contentView.bounds, &header, &content, contentView.bounds.size.height * 0.1, CGRectMinYEdge);
 
     SongHeader *songHeader = [[SongHeader  alloc]init];
@@ -52,6 +51,12 @@ static ContentView *sharedContentView;
 - (void) removeView
 {
     [contentView.subviews[1] removeFromSuperview];
+}
+
+- (void) addSongEditor
+{
+    [self addChildViewController:[SongEditor sharedSongEditor]];
+    [contentView addSubview:[[SongEditor sharedSongEditor]getView:&content]];
 }
 
 
