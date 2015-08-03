@@ -52,6 +52,7 @@ static ButtonNewSong *sharedButtonNewSong;
 - (void)clicked
 {
     NSLog(@"clicked");
+    [[ContentView sharedContentView] removeView];
 }
 
 @end

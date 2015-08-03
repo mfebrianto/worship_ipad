@@ -16,6 +16,9 @@
     UIView *contentView;
 }
 
++ (ContentView *)sharedContentView;
+
 - (UIView *) getView:(CGRect*)areaTwo;
+- (void) removeView;
 
 @end

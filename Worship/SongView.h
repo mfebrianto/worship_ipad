@@ -12,7 +12,10 @@
 {
     UIView *songView;
     UITableView *songTableView;
+    UITableView *tableView;
 }
+
++ (SongView *)sharedSongView;
 
 - (UIView *) getView:(CGRect*)contentArea;
 - (UITableView *) getTableView:(CGRect*)contentArea;

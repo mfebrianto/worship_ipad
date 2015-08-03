@@ -10,8 +10,16 @@
 #import "SongView.h"
 #import "ExternalScreen.h"
 
-@implementation SongView {
-    UITableView *tableView;
+@implementation SongView
+
+static SongView *sharedSongView;
+
++ (SongView *)sharedSongView {
+    static dispatch_once_t once;
+    dispatch_once(&once, ^{
+        sharedSongView = [[SongView alloc] init];
+    });
+    return sharedSongView;
 }
 
 - (void)viewDidLoad

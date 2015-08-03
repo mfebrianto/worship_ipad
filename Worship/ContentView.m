@@ -11,6 +11,17 @@
 
 @implementation ContentView
 
+static ContentView *sharedContentView;
+
++ (ContentView *)sharedContentView {
+    static dispatch_once_t once;
+    dispatch_once(&once, ^{
+        sharedContentView = [[ContentView alloc] init];
+    });
+    return sharedContentView;
+}
+
+
 - (void)viewDidLoad
 {
     [super viewDidLoad];
@@ -32,12 +43,15 @@
     SongHeader *songHeader = [[SongHeader  alloc]init];
     [contentView addSubview:[songHeader getView:&header]];
     
-    SongView *songView = [[SongView  alloc]init];
-    [self addChildViewController:songView];
-    [contentView addSubview:[songView getTableView:&content]];
-
+    [self addChildViewController:[SongView sharedSongView]];
+    [contentView addSubview:[[SongView sharedSongView] getTableView:&content]];
     
     return contentView;
+}
+
+- (void) removeView
+{
+    [contentView.subviews[1] removeFromSuperview];
 }
 
 

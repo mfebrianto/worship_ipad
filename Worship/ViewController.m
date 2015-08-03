@@ -44,10 +44,9 @@ static ViewController *sharedViewCcontroller;
     viewOne.layer.shadowOpacity = 0.5;
     [self.view addSubview:viewOne];
     
-    ContentView *contentView = [[ContentView  alloc]init];
-    [self addChildViewController:contentView];
+    [self addChildViewController:[ContentView sharedContentView]];
     
-    [self.view addSubview:[contentView getView:&areaTwo]];
+    [self.view addSubview:[[ContentView sharedContentView] getView:&areaTwo]];
 }
 
 - (void)didReceiveMemoryWarning {
