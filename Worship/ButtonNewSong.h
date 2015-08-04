@@ -9,8 +9,12 @@
 #import <UIKit/UIKit.h>
 #import "ViewController.h"
 #import "ContentView.h"
+#import "SongView.h"
 
 @interface ButtonNewSong : UIViewController <UINavigationControllerDelegate, UIImagePickerControllerDelegate>
+{
+    UIButton *btn;
+}
 
 + (ButtonNewSong *)sharedButtonNewSong;
 

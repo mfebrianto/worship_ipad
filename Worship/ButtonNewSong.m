@@ -32,7 +32,7 @@ static ButtonNewSong *sharedButtonNewSong;
 
 - (UIButton *) getButton
 {
-    UIButton *btn=[[UIButton alloc]initWithFrame:CGRectMake(300, 20, 200, 30)];
+    btn=[[UIButton alloc]initWithFrame:CGRectMake(300, 20, 200, 30)];
     [btn setBackgroundColor:[UIColor orangeColor]];
     [btn setTitle:@"New Song" forState:UIControlStateNormal];
     
@@ -44,16 +44,37 @@ static ButtonNewSong *sharedButtonNewSong;
 
 - (IBAction)clicked:(id)sender
 {
-    NSLog(@"button new song clicked");
-    [self clicked];
+    NSString *title = [btn.titleLabel.text stringByReplacingOccurrencesOfString:@" " withString:@""];
+    if ([title isEqualToString: @"NewSong"]){
+        NSLog(@"openSongEditor");
+        [self openSongEditor];
+    }
+    else{
+        NSLog(@"closeSongEditor");
+        [self closeSongEditor];
+    }
+
     
 }
 
-- (void)clicked
+- (void)openSongEditor
 {
-    NSLog(@"clicked");
     [[ContentView sharedContentView] removeView];
     [[ContentView sharedContentView] addSongEditor];
+    [self renameButtonLabel:@"cancel new song"];
 }
+
+- (void)closeSongEditor
+{
+    [[ContentView sharedContentView] removeView];
+    [[ContentView sharedContentView] addSongTableView];
+    [self renameButtonLabel:@"New Song"];
+}
+
+- (void)renameButtonLabel:(NSString*)label
+{
+    [btn setTitle:label forState:UIControlStateNormal];
+}
+
 
 @end

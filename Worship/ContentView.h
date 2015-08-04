@@ -23,5 +23,6 @@
 - (UIView *) getView:(CGRect*)areaTwo;
 - (void) removeView;
 - (void) addSongEditor;
+- (void) addSongTableView;
 
 @end

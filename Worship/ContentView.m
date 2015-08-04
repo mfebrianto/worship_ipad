@@ -59,6 +59,12 @@ static ContentView *sharedContentView;
     [contentView addSubview:[[SongEditor sharedSongEditor]getView:&content]];
 }
 
+- (void) addSongTableView
+{
+    [self addChildViewController:[SongView sharedSongView]];
+    [contentView addSubview:[[SongView sharedSongView] getTableView:&content]];
+}
+
 
 @end
 
