@@ -7,18 +7,18 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "ButtonNewSong.h"
+#import "ButtonSaveSong.h"
 
-@implementation ButtonNewSong
+@implementation ButtonSaveSong
 
-static ButtonNewSong *sharedButtonNewSong;
+static ButtonSaveSong *sharedButtonSaveSong;
 
-+ (ButtonNewSong *)sharedButtonNewSong {
++ (ButtonSaveSong *)sharedButtonSaveSong {
     static dispatch_once_t once;
     dispatch_once(&once, ^{
-        sharedButtonNewSong = [[ButtonNewSong alloc] init];
+        sharedButtonSaveSong = [[ButtonSaveSong alloc] init];
     });
-    return sharedButtonNewSong;
+    return sharedButtonSaveSong;
 }
 
 
@@ -32,9 +32,9 @@ static ButtonNewSong *sharedButtonNewSong;
 
 - (UIButton *) getButton
 {
-    btn=[[UIButton alloc]initWithFrame:CGRectMake(300, 20, 150, 30)];
+    btn=[[UIButton alloc]initWithFrame:CGRectMake(500, 20, 150, 30)];
     [btn setBackgroundColor:[UIColor orangeColor]];
-    [btn setTitle:@"New Song" forState:UIControlStateNormal];
+    [btn setTitle:@"Save Song" forState:UIControlStateNormal];
     
     //adding action programatically
     [btn addTarget:self action:@selector(clicked:) forControlEvents:UIControlEventTouchUpInside];
@@ -45,38 +45,33 @@ static ButtonNewSong *sharedButtonNewSong;
 - (IBAction)clicked:(id)sender
 {
     NSString *title = [btn.titleLabel.text stringByReplacingOccurrencesOfString:@" " withString:@""];
-    if ([title isEqualToString: @"NewSong"]){
-        NSLog(@"openSongEditor");
-        [self openSongEditor];
-    }
-    else{
-        NSLog(@"closeSongEditor");
-        [self closeSongEditor];
-    }
-
+    NSLog(@"closeSongEditor");
+    [self closeSongEditor];
     
 }
 
-- (void)openSongEditor
-{
-    [[ContentView sharedContentView] removeView];
-    [[ContentView sharedContentView] addSongEditor];
-    [self renameButtonLabel:@"cancel new song"];
-    [[ButtonSaveSong  sharedButtonSaveSong] show];
-}
-
-- (void)closeSongEditor
+- (void)closeSongEditor //this method duplicated with the one in ButtonNewSong
 {
     [[ContentView sharedContentView] removeView];
     [[ContentView sharedContentView] addSongTableView];
-    [[ButtonSaveSong  sharedButtonSaveSong] hide];
     [self renameButtonLabel:@"New Song"];
 }
 
-- (void)renameButtonLabel:(NSString*)label
+- (void)renameButtonLabel:(NSString*)label //this method duplicated with the one in ButtonNewSong
 {
     [btn setTitle:label forState:UIControlStateNormal];
 }
+
+- (void)hide{
+    NSLog(@"hide save song button");
+    [btn setHidden:YES];
+}
+
+- (void)show{
+    NSLog(@"show save song button");
+    [btn setHidden:NO];
+}
+
 
 
 @end

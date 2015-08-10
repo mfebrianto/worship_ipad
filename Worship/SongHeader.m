@@ -32,6 +32,8 @@
     
     [songHeader addSubview:[[ButtonChangeBackground  sharedButtonChangeBackground] getButton]];
     [songHeader addSubview:[[ButtonNewSong  sharedButtonNewSong] getButton]];
+    [songHeader addSubview:[[ButtonSaveSong  sharedButtonSaveSong] getButton]];
+    [[ButtonSaveSong  sharedButtonSaveSong] hide];
     
     return songHeader;
 }

@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		8713B9BA1B7965A500E6C69A /* ButtonSaveSong.m in Sources */ = {isa = PBXBuildFile; fileRef = 8713B9B91B7965A500E6C69A /* ButtonSaveSong.m */; };
+		873A41F91B717C580059B1F7 /* db.m in Sources */ = {isa = PBXBuildFile; fileRef = 873A41F81B717C580059B1F7 /* db.m */; };
 		876281C11B67165100BE2D97 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 876281C01B67165100BE2D97 /* main.m */; };
 		876281C41B67165100BE2D97 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 876281C31B67165100BE2D97 /* AppDelegate.m */; };
 		876281C71B67165100BE2D97 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 876281C61B67165100BE2D97 /* ViewController.m */; };
@@ -36,6 +38,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		8713B9B81B79657F00E6C69A /* ButtonSaveSong.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ButtonSaveSong.h; sourceTree = "<group>"; };
+		8713B9B91B7965A500E6C69A /* ButtonSaveSong.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ButtonSaveSong.m; sourceTree = "<group>"; };
+		873A41F71B717C480059B1F7 /* db.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = db.h; sourceTree = "<group>"; };
+		873A41F81B717C580059B1F7 /* db.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = db.m; sourceTree = "<group>"; };
 		876281BB1B67165100BE2D97 /* Worship.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Worship.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		876281BF1B67165100BE2D97 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		876281C01B67165100BE2D97 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -123,8 +129,12 @@
 				877E64FB1B69988F0012E889 /* ButtonChangeBackground.m */,
 				876A4E8D1B6F67F800F3268A /* ButtonNewSong.h */,
 				876A4E8E1B6F680B00F3268A /* ButtonNewSong.m */,
+				8713B9B81B79657F00E6C69A /* ButtonSaveSong.h */,
+				8713B9B91B7965A500E6C69A /* ButtonSaveSong.m */,
 				876A4E8C1B6F671F00F3268A /* SongEditor.h */,
 				876A4E8A1B6F670F00F3268A /* SongEditor.m */,
+				873A41F71B717C480059B1F7 /* db.h */,
+				873A41F81B717C580059B1F7 /* db.m */,
 				876281C81B67165100BE2D97 /* Main.storyboard */,
 				876281CB1B67165100BE2D97 /* Images.xcassets */,
 				876281CD1B67165100BE2D97 /* LaunchScreen.xib */,
@@ -267,10 +277,12 @@
 				876281C71B67165100BE2D97 /* ViewController.m in Sources */,
 				877E64F51B684EB30012E889 /* SongHeader.m in Sources */,
 				876281C41B67165100BE2D97 /* AppDelegate.m in Sources */,
+				8713B9BA1B7965A500E6C69A /* ButtonSaveSong.m in Sources */,
 				876281E61B6716A600BE2D97 /* ExternalScreen.m in Sources */,
 				877E64FC1B69988F0012E889 /* ButtonChangeBackground.m in Sources */,
 				876A4E8B1B6F670F00F3268A /* SongEditor.m in Sources */,
 				876281C11B67165100BE2D97 /* main.m in Sources */,
+				873A41F91B717C580059B1F7 /* db.m in Sources */,
 				876281EB1B67AA3800BE2D97 /* SongView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
