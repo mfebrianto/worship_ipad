@@ -42,11 +42,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Worship/SongEditor.m"
-            timestampString = "460297852.007639"
+            timestampString = "461026450.560776"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "51"
-            endingLineNumber = "51">
+            startingLineNumber = "56"
+            endingLineNumber = "56">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy

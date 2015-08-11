@@ -10,6 +10,7 @@
 #import "ViewController.h"
 #import "ContentView.h"
 #import "SongView.h"
+#import "SongEditor.h"
 
 @interface ButtonSaveSong : UIViewController <UINavigationControllerDelegate, UIImagePickerControllerDelegate>
 {

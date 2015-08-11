@@ -44,10 +44,50 @@ static ButtonSaveSong *sharedButtonSaveSong;
 
 - (IBAction)clicked:(id)sender
 {
-    NSString *title = [btn.titleLabel.text stringByReplacingOccurrencesOfString:@" " withString:@""];
-    NSLog(@"closeSongEditor");
+    NSLog(@"save song button clicked");
     [self closeSongEditor];
+    [self writeToText];
+}
+
+- (NSString *) getTitle:(NSString*)song
+{
+    return @"textfile.txt";
+}
+
+- (void) writeToText
+{
+    NSString *content = [[SongEditor sharedSongEditor] getSong];
     
+    NSArray *paths = NSSearchPathForDirectoriesInDomains
+    (NSDocumentDirectory, NSUserDomainMask, YES);
+    NSString *documentsDirectory = [paths objectAtIndex:0];
+
+    NSString *fileName = [NSString stringWithFormat:[self getTitle: content],
+                      documentsDirectory];
+
+    [content writeToFile:fileName
+          atomically:NO
+            encoding:NSStringEncodingConversionAllowLossy
+               error:nil];
+    
+    
+    //--- list all files in directory --//
+    NSLog(@"LISTING ALL FILES FOUND");
+    
+    int count;
+    
+    NSArray *directoryContent = [[NSFileManager defaultManager] contentsOfDirectoryAtPath:documentsDirectory error:NULL];
+    for (count = 0; count < (int)[directoryContent count]; count++)
+    {
+        NSLog(@"File %d: %@", (count + 1), [directoryContent objectAtIndex:count]);
+    }
+    
+    //--- read file --//
+    NSString *filePath = [documentsDirectory stringByAppendingPathComponent:@"textfile.txt"];
+    NSString *read_content = [NSString stringWithContentsOfFile:filePath encoding:NSUTF8StringEncoding error:NULL];
+    NSLog(@"content %@", read_content);
+    
+    //--- end---//
 }
 
 - (void)closeSongEditor //this method duplicated with the one in ButtonNewSong

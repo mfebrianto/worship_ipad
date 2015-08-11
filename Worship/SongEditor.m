@@ -35,4 +35,9 @@ static SongEditor *sharedSongEditor;
     return songEditor;
 }
 
+- (NSString *) getSong
+{
+    return songEditor.text;
+}
+
 @end
