@@ -52,7 +52,9 @@ static ButtonSaveSong *sharedButtonSaveSong;
 
 - (NSString *) getTitle:(NSString*)song
 {
-    return @"textfile.txt";
+    NSString *title = @"textfile_";
+    title = [title stringByAppendingFormat:@"%@.txt", song];
+    return title;
 }
 
 - (void) writeToText
@@ -63,7 +65,11 @@ static ButtonSaveSong *sharedButtonSaveSong;
     (NSDocumentDirectory, NSUserDomainMask, YES);
     NSString *documentsDirectory = [paths objectAtIndex:0];
 
-    NSString *fileName = [NSString stringWithFormat:[self getTitle: content],
+    NSArray *directoryContent = [[NSFileManager defaultManager] contentsOfDirectoryAtPath:documentsDirectory error:NULL];
+    
+    NSString *index = [NSString stringWithFormat:@"%d", [directoryContent count]];
+    
+    NSString *fileName = [NSString stringWithFormat:[self getTitle: index],
                       documentsDirectory];
 
     [content writeToFile:fileName
@@ -71,9 +77,7 @@ static ButtonSaveSong *sharedButtonSaveSong;
             encoding:NSStringEncodingConversionAllowLossy
                error:nil];
     
-    NSArray *directoryContent = [[NSFileManager defaultManager] contentsOfDirectoryAtPath:documentsDirectory error:NULL];
-    
-    NSLog(@">>>directoryContent>>>%d",[directoryContent count]);
+
     
 }
 
