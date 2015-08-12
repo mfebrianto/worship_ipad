@@ -19,12 +19,12 @@
 		876281E61B6716A600BE2D97 /* ExternalScreen.m in Sources */ = {isa = PBXBuildFile; fileRef = 876281E51B6716A600BE2D97 /* ExternalScreen.m */; };
 		876281E81B6716C300BE2D97 /* ExternalWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = 876281E71B6716C300BE2D97 /* ExternalWindow.xib */; };
 		876281EB1B67AA3800BE2D97 /* SongView.m in Sources */ = {isa = PBXBuildFile; fileRef = 876281EA1B67AA3800BE2D97 /* SongView.m */; };
-		876281ED1B683C6C00BE2D97 /* song_1.txt in Resources */ = {isa = PBXBuildFile; fileRef = 876281EC1B683C6C00BE2D97 /* song_1.txt */; };
 		876A4E8B1B6F670F00F3268A /* SongEditor.m in Sources */ = {isa = PBXBuildFile; fileRef = 876A4E8A1B6F670F00F3268A /* SongEditor.m */; };
 		876A4E8F1B6F680B00F3268A /* ButtonNewSong.m in Sources */ = {isa = PBXBuildFile; fileRef = 876A4E8E1B6F680B00F3268A /* ButtonNewSong.m */; };
 		877E64F51B684EB30012E889 /* SongHeader.m in Sources */ = {isa = PBXBuildFile; fileRef = 877E64F41B684EB30012E889 /* SongHeader.m */; };
 		877E64F81B68C8980012E889 /* ContentView.m in Sources */ = {isa = PBXBuildFile; fileRef = 877E64F71B68C8980012E889 /* ContentView.m */; };
 		877E64FC1B69988F0012E889 /* ButtonChangeBackground.m in Sources */ = {isa = PBXBuildFile; fileRef = 877E64FB1B69988F0012E889 /* ButtonChangeBackground.m */; };
+		87DD2A4A1B7B42B7002F672E /* ScheduleView.m in Sources */ = {isa = PBXBuildFile; fileRef = 87DD2A491B7B42B7002F672E /* ScheduleView.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -60,7 +60,6 @@
 		876281E71B6716C300BE2D97 /* ExternalWindow.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ExternalWindow.xib; sourceTree = "<group>"; };
 		876281E91B67AA0A00BE2D97 /* SongView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SongView.h; sourceTree = "<group>"; };
 		876281EA1B67AA3800BE2D97 /* SongView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SongView.m; sourceTree = "<group>"; };
-		876281EC1B683C6C00BE2D97 /* song_1.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = song_1.txt; sourceTree = "<group>"; };
 		876A4E8A1B6F670F00F3268A /* SongEditor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SongEditor.m; sourceTree = "<group>"; };
 		876A4E8C1B6F671F00F3268A /* SongEditor.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SongEditor.h; sourceTree = "<group>"; };
 		876A4E8D1B6F67F800F3268A /* ButtonNewSong.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ButtonNewSong.h; sourceTree = "<group>"; };
@@ -71,6 +70,8 @@
 		877E64F71B68C8980012E889 /* ContentView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ContentView.m; sourceTree = "<group>"; };
 		877E64FA1B6998750012E889 /* ButtonChangeBackground.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ButtonChangeBackground.h; sourceTree = "<group>"; };
 		877E64FB1B69988F0012E889 /* ButtonChangeBackground.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ButtonChangeBackground.m; sourceTree = "<group>"; };
+		87DD2A481B7B42A6002F672E /* ScheduleView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ScheduleView.h; sourceTree = "<group>"; };
+		87DD2A491B7B42B7002F672E /* ScheduleView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ScheduleView.m; path = ../ScheduleView.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -112,7 +113,6 @@
 		876281BD1B67165100BE2D97 /* Worship */ = {
 			isa = PBXGroup;
 			children = (
-				876281EC1B683C6C00BE2D97 /* song_1.txt */,
 				876281C21B67165100BE2D97 /* AppDelegate.h */,
 				876281C31B67165100BE2D97 /* AppDelegate.m */,
 				876281C51B67165100BE2D97 /* ViewController.h */,
@@ -133,6 +133,8 @@
 				8713B9B91B7965A500E6C69A /* ButtonSaveSong.m */,
 				876A4E8C1B6F671F00F3268A /* SongEditor.h */,
 				876A4E8A1B6F670F00F3268A /* SongEditor.m */,
+				87DD2A481B7B42A6002F672E /* ScheduleView.h */,
+				87DD2A491B7B42B7002F672E /* ScheduleView.m */,
 				873A41F71B717C480059B1F7 /* db.h */,
 				873A41F81B717C580059B1F7 /* db.m */,
 				876281C81B67165100BE2D97 /* Main.storyboard */,
@@ -250,7 +252,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				876281ED1B683C6C00BE2D97 /* song_1.txt in Resources */,
 				876281CA1B67165100BE2D97 /* Main.storyboard in Resources */,
 				876281CF1B67165100BE2D97 /* LaunchScreen.xib in Resources */,
 				876281E81B6716C300BE2D97 /* ExternalWindow.xib in Resources */,
@@ -274,6 +275,7 @@
 			files = (
 				877E64F81B68C8980012E889 /* ContentView.m in Sources */,
 				876A4E8F1B6F680B00F3268A /* ButtonNewSong.m in Sources */,
+				87DD2A4A1B7B42B7002F672E /* ScheduleView.m in Sources */,
 				876281C71B67165100BE2D97 /* ViewController.m in Sources */,
 				877E64F51B684EB30012E889 /* SongHeader.m in Sources */,
 				876281C41B67165100BE2D97 /* AppDelegate.m in Sources */,
