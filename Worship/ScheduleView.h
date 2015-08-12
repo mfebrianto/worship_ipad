@@ -16,5 +16,6 @@
 + (ScheduleView *)sharedScheduleView;
 
 - (UITableView *) getTableView:(CGRect*)contentArea;
+- (void) reloadData;
 
 @end

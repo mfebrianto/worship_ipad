@@ -47,6 +47,7 @@ static ButtonSaveSong *sharedButtonSaveSong;
     NSLog(@"save song button clicked");
     [self closeSongEditor];
     [self writeToText];
+    [[ScheduleView sharedScheduleView] reloadData];
 }
 
 - (NSString *) getTitle:(NSString*)song
@@ -69,6 +70,10 @@ static ButtonSaveSong *sharedButtonSaveSong;
           atomically:NO
             encoding:NSStringEncodingConversionAllowLossy
                error:nil];
+    
+    NSArray *directoryContent = [[NSFileManager defaultManager] contentsOfDirectoryAtPath:documentsDirectory error:NULL];
+    
+    NSLog(@">>>directoryContent>>>%d",[directoryContent count]);
     
 }
 

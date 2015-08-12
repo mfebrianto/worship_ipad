@@ -11,6 +11,7 @@
 #import "ContentView.h"
 #import "SongView.h"
 #import "SongEditor.h"
+#import "ScheduleView.h"
 
 @interface ButtonSaveSong : UIViewController <UINavigationControllerDelegate, UIImagePickerControllerDelegate>
 {

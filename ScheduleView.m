@@ -57,9 +57,9 @@ static ScheduleView *sharedScheduleView;
     return 5;
 }
 
-- (void) allFiles
+- (NSMutableArray *) allFiles
 {
-    
+    NSMutableArray *files;
     NSArray *paths = NSSearchPathForDirectoriesInDomains
     (NSDocumentDirectory, NSUserDomainMask, YES);
     NSString *documentsDirectory = [paths objectAtIndex:0];
@@ -68,11 +68,11 @@ static ScheduleView *sharedScheduleView;
     NSLog(@"LISTING ALL FILES FOUND");
     
     int count;
-    
     NSArray *directoryContent = [[NSFileManager defaultManager] contentsOfDirectoryAtPath:documentsDirectory error:NULL];
     for (count = 0; count < (int)[directoryContent count]; count++)
     {
-        NSLog(@"File %d: %@", (count + 1), [directoryContent objectAtIndex:count]);
+//        NSLog(@"File %d: %@", (count + 1), [directoryContent objectAtIndex:count]);
+        [files addObject:[directoryContent objectAtIndex:count]];
     }
     
     //--- read file --//
@@ -81,6 +81,7 @@ static ScheduleView *sharedScheduleView;
 //    NSLog(@"content %@", read_content);
 //    
     //--- end---//
+    return files;
 }
 
 // the cell will be returned to the tableView
@@ -93,30 +94,25 @@ static ScheduleView *sharedScheduleView;
     if (cell == nil)
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellIdentifier];
     
+    NSArray *allFilesTemp = [self allFiles];
     
-    switch (row)
+    NSLog(@">>>>>>>>%d", allFilesTemp.count);
+    
+    for (int index=0; index<allFilesTemp.count; index++)
     {
-        case 0:
-            cell.textLabel.text = @"There is nothing worth more";
-            break;
-        case 1:
-            cell.textLabel.text = @"nothing can compare You are living hope";
-            break;
-        case 2:
-            cell.textLabel.text = @"Your presence Lord";
-            break;
-        case 3:
-            cell.textLabel.text = @"I tested and see of";
-            break;
-        default:
-            cell.textLabel.text = @"sweetness of love";
-            break;
-            
+        //Statements here
+        if (row == index){
+            cell.textLabel.text = [allFilesTemp objectAtIndex:index];
+        }
     }
     
-    
     return cell;
-    
+}
+
+- (void) reloadData
+{
+    NSLog(@"reload data");
+    [scheduleTableView reloadData];
 }
 
 #pragma mark - UITableViewDelegate
