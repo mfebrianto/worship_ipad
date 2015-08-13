@@ -111,6 +111,19 @@ static ScheduleView *sharedScheduleView;
     return cell;
 }
 
+// this code for file delete menu
+- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
+    if (editingStyle == UITableViewCellEditingStyleDelete) {
+        UITableViewCell *cell = [scheduleTableView cellForRowAtIndexPath:indexPath];
+        NSString *cellText = cell.textLabel.text;
+        Db *db = [[Db alloc]init];
+        [db removeFile: cellText];
+        [self reloadData];
+    } else {
+        NSLog(@"Unhandled editing style! %d", editingStyle);
+    }
+}
+
 - (void) reloadData
 {
     NSLog(@"reload data");

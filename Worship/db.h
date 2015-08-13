@@ -11,5 +11,6 @@
 
 }
 - (NSString*)getFile:(NSString*)fileName;
+- (NSString*)removeFile:(NSString*)fileName;
 
 @end
