@@ -64,6 +64,10 @@ static SongView *sharedSongView;
     UITableViewCell *cell = [songTableView dequeueReusableCellWithIdentifier:cellIdentifier];
     if (cell == nil)
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellIdentifier];
+        cell.textLabel.font = [UIFont fontWithName:@"Helvetica" size:10.0];
+        cell.textLabel.lineBreakMode = NSLineBreakByWordWrapping; // Pre-iOS6 use UILineBreakModeWordWrap
+        cell.textLabel.numberOfLines = 2;  // 0 means no max.
+
     
     NSLog(@">>>>>>%d",[songTableContent count]);
     
