@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "SongView.h"
 
 @interface ScheduleView : UIViewController <UITableViewDelegate, UITableViewDataSource>
 {

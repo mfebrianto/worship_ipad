@@ -7,5 +7,9 @@
 //
 
 @interface Db : NSObject
+{
+
+}
+- (NSString*)getFile:(NSString*)fileName;
 
 @end

@@ -60,6 +60,8 @@ static ScheduleView *sharedScheduleView;
     NSString *documentsDirectory = [paths objectAtIndex:0];
     NSArray *directoryContent = [[NSFileManager defaultManager] contentsOfDirectoryAtPath:documentsDirectory error:NULL];
     
+    NSLog(@">>numberOfRowsInSection>>111>>%d",[directoryContent count]);
+    
     return [directoryContent count];
 }
 
@@ -98,10 +100,6 @@ static ScheduleView *sharedScheduleView;
     if (cell == nil)
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellIdentifier];
     
-    //NSArray *allFilesTemp = [self allFiles];
-    
-    NSLog(@">>>>>>>>%d", [[self allFiles] count]);
-    
     for (int index=0; index<[[self allFiles] count]; index++)
     {
         //Statements here
@@ -121,12 +119,10 @@ static ScheduleView *sharedScheduleView;
 
 #pragma mark - UITableViewDelegate
 // when user tap the row, what action you want to perform
-//- (void)tableView:(UITableView *)theTableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
-//{
-//    UITableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
-//    NSString *cellText = cell.textLabel.text;
-//    NSLog(@"%@",cellText);
-//    [[ExternalScreen  sharedES] updateText:cellText];
-//}
+- (void)tableView:(UITableView *)theTableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    UITableViewCell *cell = [scheduleTableView cellForRowAtIndexPath:indexPath];
+    [[SongView sharedSongView] loadSong:cell.textLabel.text];
+}
 
 @end

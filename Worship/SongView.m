@@ -29,16 +29,16 @@ static SongView *sharedSongView;
 
 - (UITableView *) getTableView:(CGRect*)contentArea{
     // init table view
-    tableView = [[UITableView alloc] initWithFrame:CGRectInset(*contentArea, 10, 10)];
+    songTableView = [[UITableView alloc] initWithFrame:CGRectInset(*contentArea, 10, 10)];
     
     // must set delegate & dataSource, otherwise the the table will be empty and not responsive
-    tableView.delegate = self;
-    tableView.dataSource = self;
+    songTableView.delegate = self;
+    songTableView.dataSource = self;
     
-    tableView.backgroundColor = [UIColor cyanColor];
+    songTableView.backgroundColor = [UIColor cyanColor];
     
     // add to canvas
-    return tableView;
+    return songTableView;
 }
 
 #pragma mark - UITableViewDataSource
@@ -51,7 +51,8 @@ static SongView *sharedSongView;
 // number of row in the section, I assume there is only 1 row
 - (NSInteger)tableView:(UITableView *)theTableView numberOfRowsInSection:(NSInteger)section
 {
-    return 5;
+    NSLog(@">>numberOfRowsInSection>>>>%d",[songTableContent count]);
+    return [songTableContent count];
 }
 
 // the cell will be returned to the tableView
@@ -60,29 +61,18 @@ static SongView *sharedSongView;
     static NSString *cellIdentifier = @"HistoryCell";
     NSInteger row = [indexPath row];
     
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier];
+    UITableViewCell *cell = [songTableView dequeueReusableCellWithIdentifier:cellIdentifier];
     if (cell == nil)
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellIdentifier];
     
+    NSLog(@">>>>>>%d",[songTableContent count]);
     
-    switch (row)
+    for (int index=0; index<[songTableContent count]; index++)
     {
-        case 0:
-            cell.textLabel.text = @"There is nothing worth more";
-            break;
-        case 1:
-            cell.textLabel.text = @"nothing can compare You are living hope";
-            break;
-        case 2:
-            cell.textLabel.text = @"Your presence Lord";
-            break;
-        case 3:
-            cell.textLabel.text = @"I tested and see of";
-            break;
-        default:
-            cell.textLabel.text = @"sweetness of love";
-            break;
-            
+        //Statements here
+        if (row == index){
+            cell.textLabel.text = [songTableContent objectAtIndex:index];
+        }
     }
     
 
@@ -94,10 +84,36 @@ static SongView *sharedSongView;
 // when user tap the row, what action you want to perform
 - (void)tableView:(UITableView *)theTableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    UITableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
+    UITableViewCell *cell = [songTableView cellForRowAtIndexPath:indexPath];
     NSString *cellText = cell.textLabel.text;
     NSLog(@"%@",cellText);
     [[ExternalScreen  sharedES] updateText:cellText];
+}
+
+- (void)loadSong:(NSString*)fileName
+{
+    NSLog(@"try create db");
+    Db *db = [[Db alloc] init];
+    NSLog(@"db created");
+    NSString *content = [db getFile:fileName];
+    
+    
+    
+    [songTableContent removeAllObjects];
+    songTableContent = [[NSMutableArray alloc]initWithArray:[self parseSong:content]];
+    NSLog(@">>>>loadSong>>>>%@", [songTableContent objectAtIndex:0]);
+    [songTableView reloadData];
+}
+
+- (NSArray*)parseSong:(NSString*)song
+{
+    NSArray *arrSecond = [song componentsSeparatedByString:@"\n\n"];
+    
+    for(int i =0;i<[arrSecond count];i++){
+        NSLog(@"Row %d: %@",i,[arrSecond objectAtIndex:i]);
+    }
+    
+    return arrSecond;
 }
 
 @end
