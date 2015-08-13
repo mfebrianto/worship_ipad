@@ -20,6 +20,8 @@
 
 + (ButtonSaveSong *)sharedButtonSaveSong;
 
+- (void)renameButtonLabel:(NSString*)label;
+
 - (UIButton *)getButton;
 
 - (IBAction)clicked:(id)sender;

@@ -62,6 +62,7 @@ static ButtonNewSong *sharedButtonNewSong;
     [[ContentView sharedContentView] removeView];
     [[ContentView sharedContentView] addSongEditor];
     [self renameButtonLabel:@"cancel new song"];
+    [[ButtonSaveSong  sharedButtonSaveSong] renameButtonLabel:@"Save Song"];
     [[ButtonSaveSong  sharedButtonSaveSong] show];
 }
 
@@ -70,6 +71,7 @@ static ButtonNewSong *sharedButtonNewSong;
     [[ContentView sharedContentView] removeView];
     [[ContentView sharedContentView] addSongTableView];
     [[ButtonSaveSong  sharedButtonSaveSong] hide];
+    [[ScheduleView sharedScheduleView] reloadData];
     [self renameButtonLabel:@"New Song"];
 }
 

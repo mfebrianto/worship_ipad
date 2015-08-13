@@ -39,6 +39,7 @@ static ScheduleView *sharedScheduleView;
     scheduleTableView.dataSource = self;
     
     scheduleTableView.backgroundColor = [UIColor cyanColor];
+    [self reloadData];
     
     // add to canvas
     return scheduleTableView;
@@ -54,7 +55,12 @@ static ScheduleView *sharedScheduleView;
 // number of row in the section, I assume there is only 1 row
 - (NSInteger)tableView:(UITableView *)theTableView numberOfRowsInSection:(NSInteger)section
 {
-    return 5;
+    NSArray *paths = NSSearchPathForDirectoriesInDomains
+    (NSDocumentDirectory, NSUserDomainMask, YES);
+    NSString *documentsDirectory = [paths objectAtIndex:0];
+    NSArray *directoryContent = [[NSFileManager defaultManager] contentsOfDirectoryAtPath:documentsDirectory error:NULL];
+    
+    return [directoryContent count];
 }
 
 - (NSArray *) allFiles

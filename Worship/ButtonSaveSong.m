@@ -47,13 +47,15 @@ static ButtonSaveSong *sharedButtonSaveSong;
     NSLog(@"save song button clicked");
     [self closeSongEditor];
     [self writeToText];
-    [[ScheduleView sharedScheduleView] reloadData];
+    [self hide];
+    [[ButtonNewSong sharedButtonNewSong] closeSongEditor];
 }
 
 - (NSString *) getTitle:(NSString*)song
 {
     NSString *title = @"textfile_";
     title = [title stringByAppendingFormat:@"%@.txt", song];
+    NSLog(@">>>>>title>>>>>>%@", title);
     return title;
 }
 
@@ -67,15 +69,24 @@ static ButtonSaveSong *sharedButtonSaveSong;
 
     NSArray *directoryContent = [[NSFileManager defaultManager] contentsOfDirectoryAtPath:documentsDirectory error:NULL];
     
-    NSString *index = [NSString stringWithFormat:@"%d", [directoryContent count]];
+    NSLog(@">>>>>number of files before save>>>>>>%d", [directoryContent count]);
     
-    NSString *fileName = [NSString stringWithFormat:[self getTitle: index],
-                      documentsDirectory];
+    NSString *index = [NSString stringWithFormat:@"%d", [directoryContent count]+1];
+    
+    
+    NSString *fileName = [NSString stringWithFormat:@"%@/%@",
+                      documentsDirectory, [self getTitle:index]];
 
     [content writeToFile:fileName
           atomically:NO
             encoding:NSStringEncodingConversionAllowLossy
                error:nil];
+    
+    
+    directoryContent = [[NSFileManager defaultManager] contentsOfDirectoryAtPath:documentsDirectory error:NULL];
+    
+    NSLog(@">>>>>number of files after save>>>>>>%d", [directoryContent count]);
+
     
 
     

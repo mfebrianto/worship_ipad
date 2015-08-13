@@ -21,7 +21,7 @@
 - (UIButton *)getButton;
 
 - (IBAction)clicked:(id)sender;
-
+- (void)closeSongEditor;
 
 
 @end
