@@ -90,7 +90,9 @@ static ExternalScreen *sharedES;
     [backgroundColorWhite setImage:backgoundImage];
     
     // Add label
-    xlabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, 500, 20)];
+    xlabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, 500, 200)];
+    xlabel.lineBreakMode = NSLineBreakByWordWrapping;
+    xlabel.numberOfLines = 0;
     xlabel.text = @"freeToWorship";
     [backgroundColorWhite addSubview:xlabel];
     
