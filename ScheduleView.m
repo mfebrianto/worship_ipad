@@ -111,17 +111,31 @@ static ScheduleView *sharedScheduleView;
     return cell;
 }
 
-// this code for file delete menu
-- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
-    if (editingStyle == UITableViewCellEditingStyleDelete) {
+-(NSArray *)tableView:(UITableView *)tableView editActionsForRowAtIndexPath:(NSIndexPath *)indexPath {
+    
+    UITableViewRowAction *editAction = [UITableViewRowAction rowActionWithStyle:UITableViewRowActionStyleNormal title:@"Edit" handler:^(UITableViewRowAction *action, NSIndexPath *indexPath){
+        
+        
+        
+    }];
+    editAction.backgroundColor = [UIColor blueColor];;
+    
+    
+    UITableViewRowAction *deleteAction = [UITableViewRowAction rowActionWithStyle:UITableViewRowActionStyleNormal title:@"Delete"  handler:^(UITableViewRowAction *action, NSIndexPath *indexPath){
         UITableViewCell *cell = [scheduleTableView cellForRowAtIndexPath:indexPath];
         NSString *cellText = cell.textLabel.text;
         Db *db = [[Db alloc]init];
         [db removeFile: cellText];
         [self reloadData];
-    } else {
-        NSLog(@"Unhandled editing style! %d", editingStyle);
-    }
+        
+    }];
+    
+    return @[deleteAction,editAction];
+}
+
+// this code for file delete menu
+- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
+
 }
 
 - (void) reloadData

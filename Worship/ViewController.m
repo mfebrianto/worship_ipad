@@ -36,13 +36,6 @@ static ViewController *sharedViewCcontroller;
     CGRect areaOne, areaTwo;
     CGRectDivide(self.view.bounds, &areaOne, &areaTwo, self.view.bounds.size.width * 0.30, CGRectMinXEdge);
     
-//    UIView *viewOne = [[UIView alloc] initWithFrame:CGRectInset(areaOne, 10, 10)];
-//    viewOne.autoresizingMask = UIViewAutoresizingFlexibleHeight|UIViewAutoresizingFlexibleWidth|UIViewAutoresizingFlexibleRightMargin;
-//    viewOne.backgroundColor = [UIColor colorWithWhite:0.9 alpha:1.0];
-//    viewOne.layer.borderWidth = 2.0;
-//    viewOne.layer.borderColor = [UIColor lightGrayColor].CGColor;
-//    viewOne.layer.shadowOffset = CGSizeZero;
-//    viewOne.layer.shadowOpacity = 0.5;
     [self.view addSubview:[[ScheduleView sharedScheduleView] getTableView: &areaOne]];
     
     [self addChildViewController:[ContentView sharedContentView]];
