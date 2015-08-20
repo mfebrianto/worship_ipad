@@ -44,7 +44,25 @@ static ButtonSaveSong *sharedButtonSaveSong;
 
 - (IBAction)clicked:(id)sender
 {
-    NSLog(@"save song button clicked");
+    if ([[self title] isEqualToString: @"Save Song"]){
+        [self createSong];
+    }
+    else{
+        [self updateSong];
+    }
+
+}
+
+- (void) createSong
+{
+    [self closeSongEditor];
+    [self writeToText];
+    [self hide];
+    [[ButtonNewSong sharedButtonNewSong] closeSongEditor];
+}
+
+- (void) updateSong
+{
     [self closeSongEditor];
     [self writeToText];
     [self hide];
