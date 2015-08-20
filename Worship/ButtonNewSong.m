@@ -57,12 +57,26 @@ static ButtonNewSong *sharedButtonNewSong;
     
 }
 
+- (void) openEditSong:(NSString *)songTitle
+{
+    [self renameButtonLabel:@"cancel"];
+    [self showSongContent:@"Update Song"];
+    Db *db = [[Db alloc]init];
+    [[SongEditor sharedSongEditor] loadString:[db getFile:songTitle]];
+}
+
+
 - (void)openSongEditor
+{
+    [self renameButtonLabel:@"cancel"];
+    [self showSongContent:@"Save Song"];
+}
+
+- (void)showSongContent:(NSString*)label
 {
     [[ContentView sharedContentView] removeView];
     [[ContentView sharedContentView] addSongEditor];
-    [self renameButtonLabel:@"cancel new song"];
-    [[ButtonSaveSong  sharedButtonSaveSong] renameButtonLabel:@"Save Song"];
+    [[ButtonSaveSong  sharedButtonSaveSong] renameButtonLabel:label];
     [[ButtonSaveSong  sharedButtonSaveSong] show];
 }
 

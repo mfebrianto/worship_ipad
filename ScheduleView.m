@@ -9,6 +9,7 @@
 
 #import <Foundation/Foundation.h>
 #import "ScheduleView.h"
+#import "ButtonNewSong.h"
 
 
 @implementation ScheduleView
@@ -113,8 +114,11 @@ static ScheduleView *sharedScheduleView;
 
 -(NSArray *)tableView:(UITableView *)tableView editActionsForRowAtIndexPath:(NSIndexPath *)indexPath {
     
+    UITableViewCell *cell = [scheduleTableView cellForRowAtIndexPath:indexPath];
     UITableViewRowAction *editAction = [UITableViewRowAction rowActionWithStyle:UITableViewRowActionStyleNormal title:@"Edit" handler:^(UITableViewRowAction *action, NSIndexPath *indexPath){
         
+
+        [[ButtonNewSong sharedButtonNewSong]  openEditSong:cell.textLabel.text];
         
         
     }];
@@ -122,7 +126,6 @@ static ScheduleView *sharedScheduleView;
     
     
     UITableViewRowAction *deleteAction = [UITableViewRowAction rowActionWithStyle:UITableViewRowActionStyleNormal title:@"Delete"  handler:^(UITableViewRowAction *action, NSIndexPath *indexPath){
-        UITableViewCell *cell = [scheduleTableView cellForRowAtIndexPath:indexPath];
         NSString *cellText = cell.textLabel.text;
         Db *db = [[Db alloc]init];
         [db removeFile: cellText];

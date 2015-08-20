@@ -19,5 +19,6 @@
 - (UITextView *) getView:(CGRect*)contentArea;
 
 - (NSString *) getSong;
+- (void) loadString:(NSString *)songs;
 
 @end

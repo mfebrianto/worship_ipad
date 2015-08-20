@@ -40,4 +40,10 @@ static SongEditor *sharedSongEditor;
     return songEditor.text;
 }
 
+- (void) loadString:(NSString *)songs
+{
+    songEditor.text = songs;
+}
+
+
 @end

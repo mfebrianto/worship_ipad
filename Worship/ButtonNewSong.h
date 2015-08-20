@@ -10,6 +10,7 @@
 #import "ViewController.h"
 #import "ContentView.h"
 #import "SongView.h"
+#import "db.h"
 
 @interface ButtonNewSong : UIViewController <UINavigationControllerDelegate, UIImagePickerControllerDelegate>
 {
@@ -22,6 +23,7 @@
 
 - (IBAction)clicked:(id)sender;
 - (void)closeSongEditor;
+- (void)openEditSong:(NSString *)songTitle;
 
 
 @end

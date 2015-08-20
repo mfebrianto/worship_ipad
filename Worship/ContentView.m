@@ -65,6 +65,5 @@ static ContentView *sharedContentView;
     [contentView addSubview:[[SongView sharedSongView] getTableView:&content]];
 }
 
-
 @end
 
