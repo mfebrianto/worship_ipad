@@ -26,13 +26,28 @@ static SongEditor *sharedSongEditor;
     [super viewDidLoad];
 }
 
-- (UITextView *) getView:(CGRect*)contentArea
+- (UIView *) getView:(CGRect*)contentArea
 {
-    songEditor = [[UITextView alloc] initWithFrame:CGRectInset(*contentArea, 10, 10)];
+    songContent = [[UITextView alloc] initWithFrame:CGRectInset(*contentArea, 10, 10)];
+    songContent.autoresizingMask =  UIViewAutoresizingFlexibleWidth|UIViewAutoresizingFlexibleLeftMargin;
+    songContent.backgroundColor = [UIColor grayColor];
+
+    CGRect areaTitle, areaSong;
+    CGRectDivide(songContent.bounds, &areaTitle, &areaSong, songContent.bounds.size.height * 0.20, CGRectMinYEdge);
+
+    songTitle = [[UITextField alloc] initWithFrame:CGRectInset(areaTitle, 10, 10)];
+    songTitle.layer.cornerRadius=8.0f;
+    songTitle.layer.masksToBounds=YES;
+    songTitle.backgroundColor = [UIColor whiteColor];
+    
+    songEditor = [[UITextView alloc] initWithFrame:CGRectInset(areaSong, 10, 10)];
     songEditor.autoresizingMask =  UIViewAutoresizingFlexibleWidth|UIViewAutoresizingFlexibleLeftMargin;
     songEditor.backgroundColor = [UIColor grayColor];
     
-    return songEditor;
+    [songContent addSubview: songTitle];
+    [songContent addSubview: songEditor];
+    
+    return songContent;
 }
 
 - (NSString *) getSong

@@ -12,11 +12,13 @@
 @interface SongEditor : UIViewController
 {
     UITextView *songEditor;
+    UIView *songContent;
+    UITextField *songTitle;
 }
 
 + (SongEditor *)sharedSongEditor;
 
-- (UITextView *) getView:(CGRect*)contentArea;
+- (UIView *) getView:(CGRect*)contentArea;
 
 - (NSString *) getSong;
 - (void) loadString:(NSString *)songs;
