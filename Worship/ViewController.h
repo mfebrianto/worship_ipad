@@ -9,15 +9,16 @@
 #import <UIKit/UIKit.h>
 #import "ExternalScreen.h"
 #import "ContentView.h"
+#import "DBManager.h"
 
 @interface ViewController : UIViewController
 {
     int screenWidth;
 }
 
-+ (ViewController *)sharedViewCcontroller;
+@property (nonatomic, strong) DBManager *dbManager;
 
-- (void)clicked;
++ (ViewController *)sharedViewCcontroller;
 
 @end
 

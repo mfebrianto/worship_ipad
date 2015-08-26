@@ -26,7 +26,8 @@
 		877E64FC1B69988F0012E889 /* ButtonChangeBackground.m in Sources */ = {isa = PBXBuildFile; fileRef = 877E64FB1B69988F0012E889 /* ButtonChangeBackground.m */; };
 		8793C0521B8DE6BF00F8BA93 /* libsqlite3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 8793C0511B8DE6BF00F8BA93 /* libsqlite3.dylib */; };
 		8793C0541B8DE6EA00F8BA93 /* DBManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 8793C0531B8DE6EA00F8BA93 /* DBManager.m */; };
-		87DD2A4A1B7B42B7002F672E /* ScheduleView.m in Sources */ = {isa = PBXBuildFile; fileRef = 87DD2A491B7B42B7002F672E /* ScheduleView.m */; };
+		8793C0591B8E7AB800F8BA93 /* ScheduleView.m in Sources */ = {isa = PBXBuildFile; fileRef = 8793C0581B8E7AB800F8BA93 /* ScheduleView.m */; };
+		8793C05B1B8E7DB200F8BA93 /* ddl.sql in Resources */ = {isa = PBXBuildFile; fileRef = 8793C05A1B8E7DB200F8BA93 /* ddl.sql */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -75,8 +76,10 @@
 		8793C0511B8DE6BF00F8BA93 /* libsqlite3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.dylib; path = usr/lib/libsqlite3.dylib; sourceTree = SDKROOT; };
 		8793C0531B8DE6EA00F8BA93 /* DBManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DBManager.m; sourceTree = "<group>"; };
 		8793C0551B8DE71B00F8BA93 /* DBManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DBManager.h; sourceTree = "<group>"; };
+		8793C0571B8E781600F8BA93 /* sampledb.sql */ = {isa = PBXFileReference; lastKnownFileType = file; path = sampledb.sql; sourceTree = "<group>"; };
+		8793C0581B8E7AB800F8BA93 /* ScheduleView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ScheduleView.m; sourceTree = "<group>"; };
+		8793C05A1B8E7DB200F8BA93 /* ddl.sql */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = ddl.sql; sourceTree = "<group>"; };
 		87DD2A481B7B42A6002F672E /* ScheduleView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ScheduleView.h; sourceTree = "<group>"; };
-		87DD2A491B7B42B7002F672E /* ScheduleView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ScheduleView.m; path = ../ScheduleView.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -101,7 +104,9 @@
 		876281B21B67165100BE2D97 = {
 			isa = PBXGroup;
 			children = (
+				8793C05A1B8E7DB200F8BA93 /* ddl.sql */,
 				8793C0511B8DE6BF00F8BA93 /* libsqlite3.dylib */,
+				8793C0571B8E781600F8BA93 /* sampledb.sql */,
 				876281BD1B67165100BE2D97 /* Worship */,
 				876281D71B67165100BE2D97 /* WorshipTests */,
 				876281BC1B67165100BE2D97 /* Products */,
@@ -141,7 +146,7 @@
 				876A4E8C1B6F671F00F3268A /* SongEditor.h */,
 				876A4E8A1B6F670F00F3268A /* SongEditor.m */,
 				87DD2A481B7B42A6002F672E /* ScheduleView.h */,
-				87DD2A491B7B42B7002F672E /* ScheduleView.m */,
+				8793C0581B8E7AB800F8BA93 /* ScheduleView.m */,
 				873A41F71B717C480059B1F7 /* db.h */,
 				873A41F81B717C580059B1F7 /* db.m */,
 				8793C0551B8DE71B00F8BA93 /* DBManager.h */,
@@ -261,6 +266,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8793C05B1B8E7DB200F8BA93 /* ddl.sql in Resources */,
 				876281CA1B67165100BE2D97 /* Main.storyboard in Resources */,
 				876281CF1B67165100BE2D97 /* LaunchScreen.xib in Resources */,
 				876281E81B6716C300BE2D97 /* ExternalWindow.xib in Resources */,
@@ -284,12 +290,12 @@
 			files = (
 				877E64F81B68C8980012E889 /* ContentView.m in Sources */,
 				876A4E8F1B6F680B00F3268A /* ButtonNewSong.m in Sources */,
-				87DD2A4A1B7B42B7002F672E /* ScheduleView.m in Sources */,
 				876281C71B67165100BE2D97 /* ViewController.m in Sources */,
 				877E64F51B684EB30012E889 /* SongHeader.m in Sources */,
 				876281C41B67165100BE2D97 /* AppDelegate.m in Sources */,
 				8713B9BA1B7965A500E6C69A /* ButtonSaveSong.m in Sources */,
 				8793C0541B8DE6EA00F8BA93 /* DBManager.m in Sources */,
+				8793C0591B8E7AB800F8BA93 /* ScheduleView.m in Sources */,
 				876281E61B6716A600BE2D97 /* ExternalScreen.m in Sources */,
 				877E64FC1B69988F0012E889 /* ButtonChangeBackground.m in Sources */,
 				876A4E8B1B6F670F00F3268A /* SongEditor.m in Sources */,

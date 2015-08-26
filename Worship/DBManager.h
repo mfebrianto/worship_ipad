@@ -1,13 +1,27 @@
+//
+//  DBManager.h
+//  SQLite3DBSample
+//
+//  Created by Gabriel Theodoropoulos on 25/6/14.
+//  Copyright (c) 2014 Appcoda. All rights reserved.
+//
 
-#import <sqlite3.h>
-
+#import <Foundation/Foundation.h>
 
 @interface DBManager : NSObject
 
-@property (nonatomic, strong) NSString *documentsDirectory;
-@property (nonatomic, strong) NSString *databaseFilename;
+@property (nonatomic, strong) NSMutableArray *arrColumnNames;
 
--(void)copyDatabaseIntoDocumentsDirectory;
+@property (nonatomic) int affectedRows;
+
+@property (nonatomic) long long lastInsertedRowID;
+
+
+
 -(instancetype)initWithDatabaseFilename:(NSString *)dbFilename;
+
+-(NSArray *)loadDataFromDB:(NSString *)query;
+
+-(void)executeQuery:(NSString *)query;
 
 @end

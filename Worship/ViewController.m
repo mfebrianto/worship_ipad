@@ -30,6 +30,7 @@ static ViewController *sharedViewCcontroller;
     [super viewDidLoad];
     [ExternalScreen  sharedES]; //calling singleton external screen
     // Do any additional setup after loading the view, typically from a nib.
+    [self loadDB];
     
     self.view.backgroundColor = [UIColor whiteColor];
     
@@ -42,6 +43,11 @@ static ViewController *sharedViewCcontroller;
     
     [self.view addSubview:[[ContentView sharedContentView] getView:&areaTwo]];
 }
+
+- (void) loadDB{
+    self.dbManager = [[DBManager alloc] initWithDatabaseFilename:@"sampledb.sql"];
+}
+
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
