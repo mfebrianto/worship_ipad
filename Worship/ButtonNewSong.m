@@ -62,7 +62,7 @@ static ButtonNewSong *sharedButtonNewSong;
     [self renameButtonLabel:@"cancel"];
     [self showSongContent:@"Update Song"];
     Db *db = [[Db alloc]init];
-    [[SongEditor sharedSongEditor] loadString:[db getFile:songTitle]];
+    [[SongEditor sharedSongEditor] loadString:[db getFile:songTitle] :songTitle];
 }
 
 

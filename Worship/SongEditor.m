@@ -33,7 +33,7 @@ static SongEditor *sharedSongEditor;
     songContent.backgroundColor = [UIColor grayColor];
 
     CGRect areaTitle, areaSong;
-    CGRectDivide(songContent.bounds, &areaTitle, &areaSong, songContent.bounds.size.height * 0.20, CGRectMinYEdge);
+    CGRectDivide(songContent.bounds, &areaTitle, &areaSong, songContent.bounds.size.height * 0.10, CGRectMinYEdge);
 
     songTitle = [[UITextField alloc] initWithFrame:CGRectInset(areaTitle, 10, 10)];
     songTitle.layer.cornerRadius=8.0f;
@@ -55,8 +55,9 @@ static SongEditor *sharedSongEditor;
     return songEditor.text;
 }
 
-- (void) loadString:(NSString *)songs
+- (void) loadString:(NSString *)songs :(NSString *)title
 {
+    songTitle.text = title;
     songEditor.text = songs;
 }
 

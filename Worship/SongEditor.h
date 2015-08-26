@@ -21,6 +21,6 @@
 - (UIView *) getView:(CGRect*)contentArea;
 
 - (NSString *) getSong;
-- (void) loadString:(NSString *)songs;
+- (void) loadString:(NSString *)songs :(NSString *)title;
 
 @end
