@@ -7,14 +7,14 @@
 	<key>IDESourceControlProjectIdentifier</key>
 	<string>157B3811-4A3F-4B20-AE19-4EA59733FAA2</string>
 	<key>IDESourceControlProjectName</key>
-	<string>project</string>
+	<string>Worship</string>
 	<key>IDESourceControlProjectOriginsDictionary</key>
 	<dict>
 		<key>AB6C905C6C445D55C707A45304643871528A65A5</key>
 		<string>github.com:mfebrianto/worship_ipad.git</string>
 	</dict>
 	<key>IDESourceControlProjectPath</key>
-	<string>Worship.xcodeproj/project.xcworkspace</string>
+	<string>Worship.xcodeproj</string>
 	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
 	<dict>
 		<key>AB6C905C6C445D55C707A45304643871528A65A5</key>

@@ -28,7 +28,7 @@ static SongEditor *sharedSongEditor;
 
 - (UIView *) getView:(CGRect*)contentArea
 {
-    songContent = [[UITextView alloc] initWithFrame:CGRectInset(*contentArea, 10, 10)];
+    songContent = [[UIView alloc] initWithFrame:CGRectInset(*contentArea, 10, 10)];
     songContent.autoresizingMask =  UIViewAutoresizingFlexibleWidth|UIViewAutoresizingFlexibleLeftMargin;
     songContent.backgroundColor = [UIColor grayColor];
 
